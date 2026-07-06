@@ -6,7 +6,24 @@
 let artists = [];
 
 //SECCIÓN DE FUNCIONES
-function loadArtists() {}
+
+function loadArtists() {
+  const localData = localStorage.getItem("artists");
+
+  if (localData === null) {
+    fetch(
+      "https://beta.adalab.es/curso-intensivo-fullstack-recursos/apis/artistas-urbanas.json",
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        artists = data;
+        console.log(artists);
+      });
+  } else {
+    artists = JSON.parse(localData);
+    console.log(artists);
+  }
+}
 
 function renderArtists() {}
 
