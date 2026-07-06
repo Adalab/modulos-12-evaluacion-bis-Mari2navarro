@@ -10,9 +10,9 @@ let artists = [];
 
 //SECCIÓN DE FUNCIONES
 
+// Carga las artistas en la aplicación.
+// Si existen en localStorage las recupera; si no, las obtiene desde la API.
 function loadArtists() {
-  //Carga las artistas en la aplicación
-  // Si existen en localStorage las recupera, si no, las obtiene de la API.
   const localData = localStorage.getItem("artists");
 
   if (localData === null) {
@@ -34,18 +34,18 @@ function loadArtists() {
   }
 }
 
+// Pinta las artistas en la página
 function renderArtists() {
   let html = "";
 
   for (const artist of artists) {
     html += `
       <li class="artist">
-         <img
-  class="artist__image"
-  src="${artist.foto}"
-  alt="${artist.nombre_artistico}"
-  onerror="this.src='https://placehold.co/400x500/bcb6d4/322044?text=Artista'"
-/>
+        <img
+          class="artist__image"
+          src="${artist.foto}"
+          alt="${artist.nombre_artistico}"
+          onerror="this.src='https://placehold.co/400x500/bcb6d4/322044?text=Artista'"
         />
 
         <h3 class="artist__name">
@@ -61,10 +61,13 @@ function renderArtists() {
           href="${artist.url_spotify}"
           target="_blank"
         >
-          Playlist en Spotify
+          Spotify
         </a>
 
-        <button class="artist__follow">
+        <button
+          class="artist__follow js-follow-btn"
+          data-id="${artist.id}"
+        >
           Seguir
         </button>
       </li>
@@ -72,9 +75,20 @@ function renderArtists() {
   }
 
   artistsList.innerHTML = html;
+
+  const followButtons = document.querySelectorAll(".js-follow-btn");
+
+  for (const button of followButtons) {
+    button.addEventListener("click", handleClickFollow);
+  }
 }
 
-function handleClickFollow() {}
+// Se ejecutará cuando se pulse un botón "Seguir"
+function handleClickFollow(event) {
+  console.log("Has hecho clic");
+
+  console.log(event.currentTarget);
+}
 
 //SECCIÓN DE FUNCIONES DE EVENTOS
 
