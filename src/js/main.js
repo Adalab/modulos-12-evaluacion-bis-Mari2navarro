@@ -85,9 +85,17 @@ function renderArtists() {
 
 // Se ejecutará cuando se pulse un botón "Seguir"
 function handleClickFollow(event) {
-  console.log("Has hecho clic");
+  const clickedButton = event.currentTarget;
 
-  console.log(event.currentTarget);
+  const artistId = Number(clickedButton.dataset.id);
+
+  const selectedArtist = artists.find((artist) => artist.id === artistId);
+
+  selectedArtist.following = !selectedArtist.following;
+
+  localStorage.setItem("artists", JSON.stringify(artists));
+
+  renderArtists();
 }
 
 //SECCIÓN DE FUNCIONES DE EVENTOS
