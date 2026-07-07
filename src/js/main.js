@@ -60,13 +60,19 @@ function renderArtists() {
       artist.foto || "https://placehold.co/400x500/bcb6d4/322044/?text=Artista";
 
     html += `
-      <li class="artist">
+      <li class="artist ${artist.following ? "artist--following" : ""}">
 
         <img
           class="artist__image"
           src="${photo}"
           alt="${artist.nombre_artistico}"
         />
+
+        ${
+          artist.following
+            ? `<span class="artist__badge">♥️ Favorita</span>`
+            : ""
+        }
 
         <h3 class="artist__name">
           ${artist.nombre_artistico}
@@ -89,7 +95,7 @@ function renderArtists() {
           class="artist__follow js-follow-btn"
           data-id="${artist.id}"
         >
-          Seguir
+          ${artist.following ? "Siguiendo" : "Seguir"}
         </button>
 
       </li>
@@ -98,8 +104,10 @@ function renderArtists() {
 
   artistsList.innerHTML = html;
 
+  // Selecciona todos los botones "Seguir"
   const followButtons = document.querySelectorAll(".js-follow-btn");
 
+  // Añade el evento click a cada botón
   for (const button of followButtons) {
     button.addEventListener("click", handleClickFollow);
   }
