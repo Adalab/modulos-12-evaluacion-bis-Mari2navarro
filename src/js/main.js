@@ -13,23 +13,40 @@ let artists = [];
 // Carga las artistas en la aplicación.
 // Si existen en localStorage las recupera; si no, las obtiene desde la API.
 function loadArtists() {
+  // Comprueba si las artistas ya están guardadas en localStorage
   const localData = localStorage.getItem("artists");
 
   if (localData === null) {
+    // Si no hay datos guardados, los obtiene desde la API
     fetch(
       "https://beta.adalab.es/curso-intensivo-fullstack-recursos/apis/artistas-urbanas.json",
     )
       .then((response) => response.json())
       .then((data) => {
-        artists = data;
+        // Crea un nuevo array solo con la información que necesita la aplicación
+        artists = data.map((artist) => {
+          return {
+            id: artist.id,
+            nombre_artistico: artist.nombre_artistico,
+            ciudad: artist.ciudad,
+            genero: artist.genero,
+            foto: artist.foto,
+            url_spotify: artist.url_spotify,
+            following: false,
+          };
+        });
 
+        // Guarda las artistas en localStorage
         localStorage.setItem("artists", JSON.stringify(artists));
 
+        // Muestra las artistas en pantalla
         renderArtists();
       });
   } else {
+    // Si ya existen datos en localStorage, los recupera
     artists = JSON.parse(localData);
 
+    // Muestra las artistas en pantalla
     renderArtists();
   }
 }
