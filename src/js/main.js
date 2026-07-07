@@ -3,6 +3,7 @@
 //SECCIÓN DE QUERY-SELECTORS
 
 const artistsList = document.querySelector(".js-artists-list");
+const counter = document.querySelector(".js-counter");
 
 //SECCIÓN DE DATOS
 
@@ -55,13 +56,23 @@ function loadArtists() {
 function renderArtists() {
   let html = "";
 
-  for (const artist of artists) {
+  // Creamos una copia del array para no modificar el original
+  const sortedArtists = [...artists];
+
+  // Ordenamos las artistas para que las seguidas aparezcan primero
+  sortedArtists.sort((artistA, artistB) => {
+    return artistB.following - artistA.following;
+  });
+
+  // Recorremos el array ordenado
+  for (const artist of sortedArtists) {
+    // Si no hay foto, mostramos una imagen de relleno
     const photo =
       artist.foto || "https://placehold.co/400x500/bcb6d4/322044/?text=Artista";
 
     html += `
       <li class="artist ${artist.following ? "artist--following" : ""}">
-
+        
         <img
           class="artist__image"
           src="${photo}"
@@ -102,15 +113,19 @@ function renderArtists() {
     `;
   }
 
+  // Pintamos las artistas
   artistsList.innerHTML = html;
 
-  // Selecciona todos los botones "Seguir"
+  // Seleccionamos todos los botones
   const followButtons = document.querySelectorAll(".js-follow-btn");
 
-  // Añade el evento click a cada botón
+  // Añadimos el evento click a cada botón
   for (const button of followButtons) {
     button.addEventListener("click", handleClickFollow);
   }
+
+  // Actualizamos el contador de artistas seguidas
+  renderCounter();
 }
 
 // Se ejecutará cuando se pulse un botón "Seguir"
@@ -126,6 +141,12 @@ function handleClickFollow(event) {
   localStorage.setItem("artists", JSON.stringify(artists));
 
   renderArtists();
+}
+
+function renderCounter() {
+  const followingArtists = artists.filter((artist) => artist.following);
+
+  counter.innerHTML = `${followingArtists.length} artistas seguidas`;
 }
 
 //SECCIÓN DE FUNCIONES DE EVENTOS
