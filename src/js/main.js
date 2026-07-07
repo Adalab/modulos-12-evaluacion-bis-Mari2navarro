@@ -56,13 +56,16 @@ function renderArtists() {
   let html = "";
 
   for (const artist of artists) {
+    const photo =
+      artist.foto || "https://placehold.co/400x500/bcb6d4/322044/?text=Artista";
+
     html += `
       <li class="artist">
+
         <img
           class="artist__image"
-          src="${artist.foto}"
+          src="${photo}"
           alt="${artist.nombre_artistico}"
-          onerror="this.src='https://placehold.co/400x500/bcb6d4/322044?text=Artista'"
         />
 
         <h3 class="artist__name">
@@ -77,8 +80,9 @@ function renderArtists() {
           class="artist__spotify"
           href="${artist.url_spotify}"
           target="_blank"
+          rel="noopener noreferrer"
         >
-          Spotify
+          Playlist en Spotify
         </a>
 
         <button
@@ -87,6 +91,7 @@ function renderArtists() {
         >
           Seguir
         </button>
+
       </li>
     `;
   }
