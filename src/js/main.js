@@ -1,30 +1,25 @@
 "use strict";
 
 //SECCIÓN DE QUERY-SELECTORS
-
 const artistsList = document.querySelector(".js-artists-list");
 const counter = document.querySelector(".js-counter");
 
 //SECCIÓN DE DATOS
-
 let artists = [];
 
 //SECCIÓN DE FUNCIONES
 
-// Carga las artistas en la aplicación.
-// Si existen en localStorage las recupera; si no, las obtiene desde la API.
+//Consigue los datos. Mira en localStorage para no hacer una petición a la API cada vez. Si no hay datos,hace fetch para obtener los datos del servidor. Convierte la respuesta y hace map() para crear un nuevo array solo con la info que se necesita.
+
 function loadArtists() {
-  // Comprueba si las artistas ya están guardadas en localStorage
   const localData = localStorage.getItem("artists");
 
   if (localData === null) {
-    // Si no hay datos guardados, los obtiene desde la API
     fetch(
       "https://beta.adalab.es/curso-intensivo-fullstack-recursos/apis/artistas-urbanas.json",
     )
       .then((response) => response.json())
       .then((data) => {
-        // Crea un nuevo array solo con la información que necesita la aplicación
         artists = data.map((artist) => {
           return {
             id: artist.id,
@@ -37,38 +32,34 @@ function loadArtists() {
           };
         });
 
-        // Guarda las artistas en localStorage
         localStorage.setItem("artists", JSON.stringify(artists));
 
-        // Muestra las artistas en pantalla
         renderArtists();
       });
   } else {
-    // Si ya existen datos en localStorage, los recupera
     artists = JSON.parse(localData);
-
-    // Muestra las artistas en pantalla
     renderArtists();
   }
 }
 
-// Pinta las artistas en la página
+// Pinta las artistas en la página. Re-ordena el array para que aparezcan las seguidas primero
+
 function renderArtists() {
   let html = "";
 
-  // Creamos una copia del array para no modificar el original
   const sortedArtists = [...artists];
 
-  // Ordenamos las artistas para que las seguidas aparezcan primero
   sortedArtists.sort((artistA, artistB) => {
     return artistB.following - artistA.following;
   });
 
-  // Recorremos el array ordenado
   for (const artist of sortedArtists) {
-    // Si no hay foto, mostramos una imagen de relleno
-    const photo =
-      artist.foto || "https://placehold.co/400x500/bcb6d4/322044/?text=Artista";
+    let photo = "";
+    if (artist.foto === null) {
+      photo = "https://placehold.co/400x500/bcb6d4/322044/?text=Artista";
+    } else {
+      photo = artist.foto;
+    }
 
     html += `
       <li class="artist ${artist.following ? "artist--following" : ""}">
@@ -113,7 +104,7 @@ function renderArtists() {
     `;
   }
 
-  // Pintamos las artistas
+  // Introduce todo el html que hemos creado antes en la página
   artistsList.innerHTML = html;
 
   // Seleccionamos todos los botones
@@ -155,6 +146,7 @@ function renderCounter() {
 
 //SECCIÓN DE ACCIONES AL CARGAR LA PÁGINA
 
+//por si en el futuro se necesitan ejecutar más acciones
 function init() {
   loadArtists();
 }
