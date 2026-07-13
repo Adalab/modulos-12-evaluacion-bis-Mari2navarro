@@ -1,7 +1,7 @@
 @use "../core/variables" as *;
 
 .hero {
-  min-height: calc(100dvh - 80px);
+  min-height: calc(100dvh - 72px);
 
   display: flex;
   flex-direction: column;
@@ -10,54 +10,46 @@
 
   text-align: center;
 
-  padding: 4rem 2rem;
+  padding: 3rem 2rem;
 
-  background: $color-paper;
+  background-color: $color-paper;
 
   &__content {
-    max-width: 650px;
+     max-width: 600px;
+  margin-bottom: 2.5rem;
   }
 
   &__title {
     font-family: $font-title;
-
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
-
+    font-size: clamp(3rem, 5vw, 4.2rem);
+    font-weight: 700;
     line-height: 1;
-
     margin-bottom: 1rem;
   }
 
-  &__title span {
-    color: $color-primary;
-  }
-
   &__text {
-    max-width: 500px;
-
-    margin: 0 auto 3rem;
-
+    font-family: $font-body;
+    font-size: 1.1rem;
     line-height: 1.7;
+    max-width: 560px;
+    margin: 0 auto;
+    color: rgba(48, 31, 72, .8)
   }
 
   &__images {
     display: flex;
-
-    gap: 2rem;
+    justify-content: center;
+    gap: 3rem;
   }
 
-  &__card {
-    width: 150px;
-    height: 180px;
-
-    background: white;
-
-    border-radius: 10px;
-
-    box-shadow: $shadow-card;
+  &__image {
+    width: 255.4px;
+    border-radius: 6px;
+    box-shadow: 0 10px 30px -12px rgba(60, 30, 15, 0.55);
+    
 
     &--left {
-      transform: rotate(-8deg);
+      transform: rotate(-4deg);
     }
 
     &--right {

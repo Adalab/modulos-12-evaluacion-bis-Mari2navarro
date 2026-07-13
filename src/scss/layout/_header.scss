@@ -5,58 +5,72 @@
   top: 0;
   z-index: 100;
 
+  width: 100%;
+  height: 78px;
+
+  display: flex;
+  align-items: center;
+
   background-color: $color-ink;
-  border-top: 3px solid #5a5365;
+
   border-bottom: 2px solid $color-primary;
 
+  box-shadow:
+    0 2px 4px -2px rgba(0, 0, 0, 0.1),
+    0 4px 6px -1px rgba(0, 0, 0, 0.1);
+
+  padding: 0 5rem;
+
   &__container {
-    max-width: 1200px;
-    margin: 0 auto;
+    width: 100%;
+    height: 100%;
 
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    gap: 1rem;
 
-    padding: 0.7rem 2rem;
+    gap: 0.75rem;
   }
 
   &__logo {
-    width: 44px;
-    height: 44px;
+    width: 60px;
+    height: 60px;
 
     object-fit: contain;
 
     flex-shrink: 0;
   }
 
-  &__info {
+  &__text {
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    gap: 2px;
   }
 
   &__title {
     margin: 0;
 
     font-family: $font-title;
-    font-size: 1.6rem;
+    font-size: 24px;
     font-weight: 700;
     line-height: 1;
+    letter-spacing: -0.6px;
 
     color: white;
+    text-transform: uppercase;
   }
 
   &__tagline {
-    margin-top: 0.25rem;
+    margin: 0;
 
     font-family: $font-body;
-    font-size: 0.65rem;
-    font-weight: 500;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.33;
+    letter-spacing: 2.4px;
 
+    color: rgba(240, 235, 252, 0.7);
     text-transform: uppercase;
-    letter-spacing: 0.22rem;
-
-    color: rgba(255, 255, 255, 0.6);
   }
 }
