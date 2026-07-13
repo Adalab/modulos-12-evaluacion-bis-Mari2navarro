@@ -90,14 +90,14 @@ function renderArtists() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Playlist en Spotify
+          🎶 Playlist en Spotify
         </a>
 
         <button
           class="artist__follow js-follow-btn"
           data-id="${artist.id}"
         >
-          ${artist.following ? "Siguiendo" : "Seguir"}
+          ${artist.following ? "Siguiendo" : "🩷 Seguir"}
         </button>
 
       </li>
