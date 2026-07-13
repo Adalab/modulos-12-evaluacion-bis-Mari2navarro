@@ -1,0 +1,67 @@
+@use "../core/variables" as *;
+
+.footer {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+
+  gap: 2rem;
+
+  padding: 2.5rem 5rem;
+
+  background-color: $color-ink;
+
+  border-top: 2px solid $color-primary;
+
+ 
+
+  &__column {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    margin: 0 0 1rem;
+
+    font-family: $font-title;
+    font-size: 1.3rem;
+
+    color: $color-card;
+  }
+
+  &__text {
+    margin: 0;
+
+    font-family: $font-body;
+    font-size: 14px;
+    line-height: 1.6;
+    
+
+    color: rgba(255, 255, 255, 0.6);
+
+    max-width: 340px;
+     text-align: justify;
+
+    
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  &__links a {
+    font-family: $font-body;
+    font-size: 14px;
+
+    color: rgba(255, 255, 255, 0.65);
+
+    text-decoration: none;
+
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+}
