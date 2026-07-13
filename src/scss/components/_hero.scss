@@ -14,46 +14,87 @@
 
   background-color: $color-paper;
 
+   &__badge {
+    display: inline-block;
+
+    margin-bottom: 1.5rem;
+
+    padding: 0.35rem 0.9rem;
+
+    border: 1px solid rgba(233, 42, 148, 0.3);
+
+    border-radius: 999px;
+
+    background-color: rgba(233, 42, 148, 0.08);
+
+    color: $color-primary;
+
+    font-family: $font-body;
+
+    font-size: 0.75rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.12rem;
+
+    text-transform: uppercase;
+  }
+
   &__content {
-     max-width: 600px;
+     max-width: 760px;
   margin-bottom: 2.5rem;
   }
 
   &__title {
-    font-family: $font-title;
-    font-size: clamp(3rem, 5vw, 4.2rem);
-    font-weight: 700;
-    line-height: 1;
-    margin-bottom: 1rem;
+  font-family: $font-title;
+  font-size: clamp(2.8rem, 5vw, 4rem);
+
+  line-height: 1;
+
+  color: $color-ink;
+
+  span {
+    color: $color-primary;
+  }
   }
 
   &__text {
-    font-family: $font-body;
-    font-size: 1.1rem;
-    line-height: 1.7;
-    max-width: 560px;
-    margin: 0 auto;
-    color: rgba(48, 31, 72, .8)
+  max-width: 500px;
+  margin: 1.5rem auto 0;
+
+  line-height: 1.6;
+}
+
+&__images {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  gap: 2rem;
+
+  margin-top: 3rem;
+}
+
+&__image {
+  width: 225px;
+  aspect-ratio: 225.4 / 269.9;
+  object-fit: cover;
+
+  display: block;
+
+  border: 4px solid $color-paper;
+  border-radius: 6px;
+
+  box-shadow: 0 10px 30px -12px rgba(60, 30, 15, 0.55);
+
+  &--left {
+    transform: rotate(-4deg);
+    margin-top: 0;
   }
 
-  &__images {
-    display: flex;
-    justify-content: center;
-    gap: 3rem;
+  &--right {
+    transform: rotate(5deg);
+    margin-top: 60px;
   }
-
-  &__image {
-    width: 255.4px;
-    border-radius: 6px;
-    box-shadow: 0 10px 30px -12px rgba(60, 30, 15, 0.55);
-    
-
-    &--left {
-      transform: rotate(-4deg);
-    }
-
-    &--right {
-      transform: rotate(8deg);
-    }
-  }
+}
 }
