@@ -65,3 +65,35 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+
+  .footer {
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 1.5rem;
+
+    padding: 2rem 1rem;
+
+    &__title {
+      font-size: 1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    &__text {
+      font-size: 0.7rem;
+      line-height: 1.5;
+
+      max-width: 100%;
+    }
+
+    &__links {
+      gap: 0.4rem;
+    }
+
+    &__links a {
+      font-size: 0.7rem;
+    }
+  }
+
+}

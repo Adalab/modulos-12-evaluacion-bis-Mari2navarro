@@ -166,3 +166,24 @@ position: relative;
     border: 2px solid $color-primary;
   }
 }
+
+@media (max-width: 768px) {
+
+  .artists {
+    padding: 2rem 1rem;
+
+    &__header {
+      margin-bottom: 1.5rem;
+    }
+
+    &__title {
+      font-size: 2rem;
+    }
+
+    &__list {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+  }
+
+}
