@@ -152,5 +152,3 @@ function init() {
 }
 
 init();
-
-console.log(">> ok :)");

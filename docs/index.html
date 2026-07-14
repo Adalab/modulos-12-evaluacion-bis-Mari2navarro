@@ -3,68 +3,114 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Adalab Web Starter Kit</title>
-    <link
-      href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="icon" href="./images/favicon.png" />
-    <link rel="stylesheet" crossorigin href="./assets/main-DHonzeW9.css">
+    <title>Raíz Urbana</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@400;500;600;700&display=swap"
+  rel="stylesheet"
+/>
+    <link rel="icon" href="./images/favicon_dot.svg" />
+    <link rel="stylesheet" crossorigin href="./assets/index-D_eIwpcb.css">
   </head>
 
   <body>
     <div class="page">
-      <header class="page__header">
-  <img src="./images/logo-adalab.png" alt="Adalab" />
-  <h1>Bienvenidos a Adalab</h1>
+      <header class="header">
+  <div class="header__container">
+    <img
+      class="header__logo"
+      src="./images/raiz-urbana-design-mari-icon.png"
+      alt="Logo Raíz Urbana"
+    />
+
+    <div class="header__text">
+      <h1 class="header__title">RAÍZ URBANA</h1>
+      <p class="header__tagline">
+        Mujeres que pintan, riman y suenan
+      </p>
+    </div>
+  </div>
 </header>
+      <main class="main">
+  <section class="hero">
+    <div class="hero__content">
 
-      <main class="page__main">
-  <h2>Este es el starter kit de Adalab</h2>
-  <p>Lo usamos para aprender:</p>
-  <ul class="main__list">
-    <li>Sass</li>
-    <li>HTML partials</li>
-    <li>Gulp</li>
-    <li>y muchas cosas más</li>
-  </ul>
-  <p>Si quieres saber cúales son las rutas correctas para:</p>
-  <ul class="main__list">
-    <li>
-      una <code class="code">&lt;img /&gt;</code> mira el fichero
-      <code class="code">./src/html/partials/header.html</code>.
-    </li>
-    <li>
-      y para un <code class="code">background-image</code> mira el fichero
-      <code class="code">./src/html/scss/layout/_page.scss</code>.
-    </li>
-  </ul>
-  <p>
-    Si quieres saber cómo usar un partial HTML dentro de otro partial, busca en la carperta
-    <code class="code">./src/html/index.html</code> y
-    <code class="code">./src/html/partials/main.html</code>, y verás cómo estamos creando estos
-    enlaces:
-  </p>
-  <ul class="main__list">
-    <li>
-      <a class="link__adalab" href="https://adalab.es">Adalab</a>
+      <p class="hero__badge">DIRECTORIO VIVO</p>
+      
+      <h2 class="hero__title">
+        La escena urbana 
+        <span>también es nuestra</span>
+      </h2>
 
-    </li>
-    <li>
-      <a class="{=$aClass}" href="./more-info.html">Más info del starter kit</a>
+      <p class="hero__text">
+        Un mapa abierto de raperas, trapperas, DJs, grafiteras y poetas que están cambiando el sonido y los muros de nuestras ciudades. Escúchalas, sígueles la pista y guarda a tus favoritas. 
+      </p>
+    </div>
 
-    </li>
-  </ul>
+    <div class="hero__images">
+      <img
+        class="hero__image hero__image--left"
+        src="./images/hero-01.webp"
+        alt=""
+      />
+
+      <img
+        class="hero__image hero__image--right"
+        src="./images/hero-02.webp"
+        alt=""
+      />
+    </div>
+  </section>
+
+  <section class="artists">
+    <div class="artists__header">
+      <h2 class="artists__title">Artistas</h2>
+
+      <p class="artists__counter js-counter">
+        0 artistas seguidas
+      </p>
+    </div>
+
+    <ul class="artists__list js-artists-list">
+      <!-- JavaScript pintará aquí las artistas -->
+    </ul>
+  </section>
 </main>
+      <footer class="footer">
 
-      <footer class="page__footer">
-  <small>
-    &copy; Todos los derechos reservados
-    <a class="link__adalab" href="https://adalab.es">Adalab</a>
+  <section class="footer__column">
+    <h3 class="footer__title">Raíz Urbana</h3>
 
-  </small>
+    <p class="footer__text">
+      © 2026 Raíz Urbana. Hecho con rabia y cariño.
+      Todos los derechos de las artistas pertenecen a las artistas.
+    </p>
+  </section>
+
+  <section class="footer__column">
+    <h3 class="footer__title">Redes</h3>
+
+    <nav class="footer__links">
+      <a href="#">Instagram</a>
+      <a href="#">Bluesky</a>
+      <a href="#">YouTube</a>
+    </nav>
+  </section>
+
+  <section class="footer__column">
+    <h3 class="footer__title">Festivales</h3>
+
+    <nav class="footer__links">
+      <a href="#">She Beats Fest</a>
+      <a href="#">Muralistas en Red</a>
+      <a href="#">Bloque Sonoro</a>
+      <a href="#">Cypher Hermanas</a>
+    </nav>
+  </section>
+
 </footer>
-
     </div>
     <script src="./js/main.js"></script>
   </body>
